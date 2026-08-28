@@ -1,112 +1,811 @@
-index.html
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Ali Mansour Mansour — Professional Chef">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ali Mansour Mansour | Professional Chef</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07111f;
+  color:#f6f0df;
+  line-height:1.7;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(7,17,31,.92);
+  border-bottom:1px solid rgba(212,175,55,.25);
+  backdrop-filter:blur(10px);
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  letter-spacing:4px;
+  color:#fff;
+}
+
+.logo span{
+  color:#d4af37;
+}
+
+nav{
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  color:#eee;
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#d4af37;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:130px 7% 70px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(212,175,55,.16),transparent 30%),
+    linear-gradient(135deg,#07111f,#0d1b2d);
+}
+
+.hero-content{
+  max-width:850px;
+  position:relative;
+  z-index:2;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid #d4af37;
+  color:#d4af37;
+  border-radius:30px;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:25px;
+}
+
+h1{
+  font-family:Georgia,serif;
+  font-size:clamp(55px,9vw,105px);
+  line-height:.95;
+  margin-bottom:25px;
+}
+
+h1 span{
+  color:#d4af37;
+  font-style:italic;
+}
+
+.hero p{
+  max-width:680px;
+  font-size:19px;
+  color:#d8d5ca;
+  margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 25px;
+  border-radius:5px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.gold{
+  background:#d4af37;
+  color:#07111f;
+}
+
+.gold:hover{
+  background:#f0d36a;
+  transform:translateY(-3px);
+}
+
+.outline{
+  border:1px solid #d4af37;
+  color:#d4af37;
+}
+
+.outline:hover{
+  background:#d4af37;
+  color:#07111f;
+}
+
+.hero-decoration{
+  position:absolute;
+  right:-100px;
+  bottom:-150px;
+  width:550px;
+  height:550px;
+  border-radius:50%;
+  border:2px solid rgba(212,175,55,.18);
+  box-shadow:0 0 0 50px rgba(212,175,55,.03),
+             0 0 0 100px rgba(212,175,55,.02);
+}
+
+section{
+  padding:100px 7%;
+}
+
+.dark{
+  background:#050c16;
+}
+
+.light{
+  background:#f4efe2;
+  color:#101a28;
+}
+
+.section-label{
+  color:#d4af37;
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+h2{
+  font-family:Georgia,serif;
+  font-size:clamp(38px,5vw,65px);
+  line-height:1.05;
+  margin-bottom:25px;
+}
+
+h2 span{
+  color:#d4af37;
+  font-style:italic;
+}
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.text{
+  color:#c8c5bb;
+  font-size:17px;
+}
+
+.light .text{
+  color:#46505d;
+}
+
+.text p{
+  margin-bottom:18px;
+}
+
+.facts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:25px;
+}
+
+.fact{
+  border:1px solid rgba(212,175,55,.3);
+  padding:18px;
+  border-radius:8px;
+  background:rgba(212,175,55,.04);
+}
+
+.fact strong{
+  display:block;
+  color:#d4af37;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:45px;
+}
+
+.card{
+  padding:30px;
+  min-height:210px;
+  border:1px solid rgba(212,175,55,.22);
+  border-radius:12px;
+  background:linear-gradient(145deg,#0d1b2d,#091321);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#d4af37;
+}
+
+.number{
+  color:#d4af37;
+  font-size:13px;
+  letter-spacing:2px;
+}
+
+.card h3{
+  font-family:Georgia,serif;
+  font-size:27px;
+  margin:15px 0 10px;
+}
+
+.card p{
+  color:#aaaeb5;
+}
+
+.dishes{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:45px;
+}
+
+.dish{
+  background:#101d2d;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(212,175,55,.18);
+}
+
+.dish-top{
+  height:150px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:65px;
+  background:
+    radial-gradient(circle,#263c50,#0b1726);
+}
+
+.dish-info{
+  padding:22px;
+}
+
+.dish-info small{
+  color:#d4af37;
+  letter-spacing:2px;
+}
+
+.dish-info h3{
+  font-family:Georgia,serif;
+  font-size:24px;
+  margin:5px 0;
+}
+
+.timeline{
+  border-left:2px solid #d4af37;
+  padding-left:30px;
+}
+
+.timeline-item{
+  margin-bottom:35px;
+  position:relative;
+}
+
+.timeline-item:before{
+  content:"";
+  position:absolute;
+  left:-39px;
+  top:8px;
+  width:14px;
+  height:14px;
+  background:#d4af37;
+  border-radius:50%;
+}
+
+.timeline-item small{
+  color:#d4af37;
+  letter-spacing:2px;
+}
+
+.timeline-item h3{
+  font-family:Georgia,serif;
+  font-size:27px;
+  margin:5px 0;
+}
+
+.timeline-item p{
+  color:#aaaeb5;
+}
+
+.family{
+  text-align:center;
+  padding:80px 7%;
+  background:
+    linear-gradient(rgba(212,175,55,.08),rgba(212,175,55,.02)),
+    #07111f;
+}
+
+.family-icon{
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.family h2{
+  margin-bottom:10px;
+}
+
+.family p{
+  color:#c8c5bb;
+  font-size:18px;
+}
+
+.contact-box{
+  background:linear-gradient(135deg,#d4af37,#b88d20);
+  color:#07111f;
+  border-radius:15px;
+  padding:45px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.contact-box h2{
+  margin:0;
+}
+
+.contact-btn{
+  background:#07111f;
+  color:#fff;
+  padding:16px 25px;
+  border-radius:5px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+footer{
+  padding:30px 7%;
+  background:#030810;
+  display:flex;
+  justify-content:space-between;
+  color:#9ca1aa;
+  font-size:13px;
+}
+
+@media(max-width:850px){
+
+  header{
+    padding:15px 5%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  section{
+    padding:75px 6%;
+  }
+
+  .hero{
+    padding:130px 6% 70px;
+  }
+
+  .two{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .cards,
+  .dishes{
+    grid-template-columns:1fr;
+  }
+
+  .facts{
+    grid-template-columns:1fr;
+  }
+
+  .contact-box{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+</style>
 </head>
+
 <body>
+
 <header>
-  <a class="logo" href="#home">ALI<span>.</span></a>
+  <a href="#home" class="logo">ALI<span>.</span></a>
+
   <nav>
-    <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#dishes">Dishes</a>
-    <a href="#experience">Experience</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#dishes">Dishes</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-photo"><img src="assets/chef-kitchen.jpg" alt="Ali Mansour in a professional kitchen"></div>
-  <div class="hero-shade"></div>
+
   <div class="hero-content">
-    <p class="eyebrow">PROFESSIONAL CHEF · LEBANON & TUNISIA</p>
-    <h1>Ali Mansour<br><i>Mansour</i></h1>
-    <p class="lead">10 years of culinary experience, combining Lebanese tradition with Tunisian, Italian and American flavors.</p>
-    <div class="actions"><a class="gold-btn" href="#experience">DISCOVER MY JOURNEY</a><a class="line-btn" href="#contact">CONTACT ME</a></div>
+
+    <div class="badge">PROFESSIONAL CHEF · LEBANON & TUNISIA</div>
+
+    <h1>
+      Ali Mansour<br>
+      <span>Mansour</span>
+    </h1>
+
+    <p>
+      Professional Chef with experience in Lebanese, Tunisian,
+      Italian, American and French cuisine.
+    </p>
+
+    <div class="buttons">
+      <a class="btn gold" href="#experience">DISCOVER MY JOURNEY</a>
+      <a class="btn outline" href="#contact">CONTACT ME</a>
+    </div>
+
   </div>
+
+  <div class="hero-decoration"></div>
+
 </section>
+
 
 <section id="about" class="dark">
-  <p class="label">01 — ABOUT</p>
-  <div class="two-col">
-    <h2>A passion for the craft.<br><i>A standard for excellence.</i></h2>
-    <div class="copy">
-      <p>Ali Mansour Mansour is a professional chef with 10 years of hands-on experience in restaurants and hotels across Tunisia and Lebanon.</p>
-      <p>His kitchen brings together Lebanese and Tunisian heritage with Italian and American culinary styles, from breakfast service to full restaurant operations.</p>
-      <p class="facts"><b>Born:</b> 29 July 1999 &nbsp; · &nbsp; <b>Education:</b> University</p>
+
+  <div class="section-label">01 — ABOUT</div>
+
+  <div class="two">
+
+    <div>
+      <h2>
+        A passion for the craft.
+        <span>A standard for excellence.</span>
+      </h2>
     </div>
+
+    <div class="text">
+
+      <p>
+        Ali Mansour Mansour is a professional chef with
+        hands-on experience in restaurants and culinary operations.
+      </p>
+
+      <p>
+        His culinary style combines Lebanese and Tunisian heritage
+        with Italian, American and French influences.
+      </p>
+
+      <div class="facts">
+
+        <div class="fact">
+          <strong>BORN</strong>
+          29 July 1999
+        </div>
+
+        <div class="fact">
+          <strong>EDUCATION</strong>
+          University
+        </div>
+
+        <div class="fact">
+          <strong>FAMILY</strong>
+          Married · Father of two
+        </div>
+
+        <div class="fact">
+          <strong>PROFESSION</strong>
+          Professional Chef
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
-<section id="expertise">
-  <p class="label">02 — CULINARY EXPERTISE</p>
-  <div class="two-col head">
-    <h2>One kitchen.<br><i>Many worlds.</i></h2>
-    <p class="copy">A versatile chef comfortable with diverse menus, professional service and kitchen leadership.</p>
-  </div>
+
+<section id="expertise" class="light">
+
+  <div class="section-label">02 — CULINARY EXPERTISE</div>
+
+  <h2>
+    One kitchen.<br>
+    <span>Many worlds.</span>
+  </h2>
+
   <div class="cards">
-    <div><small>01</small><h3>Lebanese</h3><p>Traditional Lebanese dishes, mezze and breakfast specialties.</p></div>
-    <div><small>02</small><h3>Tunisian</h3><p>Classic Tunisian flavors and dishes with authentic local character.</p></div>
-    <div><small>03</small><h3>Italian</h3><p>Pasta, sauces, pizza-style preparations and Italian restaurant service.</p></div>
-    <div><small>04</small><h3>American</h3><p>Burgers, steaks, sandwiches and modern American restaurant cuisine.</p></div>
-    <div><small>05</small><h3>Breakfast</h3><p>Lebanese, French and American breakfast preparation and presentation.</p></div>
-    <div><small>06</small><h3>Leadership</h3><p>Restaurant supervision, kitchen organization, quality and service standards.</p></div>
+
+    <div class="card">
+      <div class="number">01</div>
+      <h3>Lebanese</h3>
+      <p>
+        Traditional Lebanese cuisine, mezze,
+        breakfast and classic dishes.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">02</div>
+      <h3>Tunisian</h3>
+      <p>
+        Authentic Tunisian flavors and traditional
+        local dishes.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">03</div>
+      <h3>Italian</h3>
+      <p>
+        Italian restaurant cuisine, pasta,
+        sauces and classic preparations.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">04</div>
+      <h3>American</h3>
+      <p>
+        Burgers, steaks, sandwiches and
+        modern American cuisine.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">05</div>
+      <h3>French</h3>
+      <p>
+        French breakfast, pastries and
+        classic breakfast presentation.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="number">06</div>
+      <h3>Leadership</h3>
+      <p>
+        Kitchen organization, restaurant operations,
+        quality and service.
+      </p>
+    </div>
+
   </div>
+
 </section>
+
 
 <section id="dishes" class="dark">
-  <p class="label">03 — SIGNATURE DISHES</p>
-  <div class="two-col head"><h2>A taste of<br><i>Ali's kitchen.</i></h2><p class="copy">A curated selection of dishes that represents the range of his culinary style.</p></div>
-  <div class="dish-grid">
-    <article><div class="dish-img">🍝</div><div><span>ITALIAN</span><h3>Truffle Cream Pasta</h3><p>Silky cream sauce, parmesan, herbs and truffle notes.</p></div></article>
-    <article><div class="dish-img">🥩</div><div><span>AMERICAN</span><h3>Grilled Steak & Herb Butter</h3><p>Char-grilled beef served with roasted vegetables and herb butter.</p></div></article>
-    <article><div class="dish-img">🥙</div><div><span>LEBANESE</span><h3>Mixed Mezze Selection</h3><p>Hummus, moutabal, tabbouleh, fresh bread and seasonal bites.</p></div></article>
-    <article><div class="dish-img">🍲</div><div><span>TUNISIAN</span><h3>Tunisian Couscous</h3><p>Traditional couscous with vegetables, spices and slow-cooked flavors.</p></div></article>
-    <article><div class="dish-img">🍳</div><div><span>BREAKFAST</span><h3>Lebanese Breakfast</h3><p>Labneh, eggs, olives, vegetables, cheese and warm bread.</p></div></article>
-    <article><div class="dish-img">🥐</div><div><span>FRENCH</span><h3>Classic French Breakfast</h3><p>Fresh pastries, butter, preserves and café-style breakfast favorites.</p></div></article>
+
+  <div class="section-label">03 — SIGNATURE DISHES</div>
+
+  <div class="two">
+
+    <div>
+      <h2>
+        A taste of<br>
+        <span>Ali's kitchen.</span>
+      </h2>
+    </div>
+
+    <div class="text">
+      A selection representing the international range
+      of Ali's culinary experience.
+    </div>
+
   </div>
+
+  <div class="dishes">
+
+    <div class="dish">
+      <div class="dish-top">🍝</div>
+      <div class="dish-info">
+        <small>ITALIAN</small>
+        <h3>Truffle Cream Pasta</h3>
+        <p>Pasta with creamy sauce, parmesan and herbs.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-top">🥩</div>
+      <div class="dish-info">
+        <small>AMERICAN</small>
+        <h3>Grilled Steak</h3>
+        <p>Grilled beef with vegetables and herb butter.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-top">🥙</div>
+      <div class="dish-info">
+        <small>LEBANESE</small>
+        <h3>Mixed Mezze</h3>
+        <p>Hummus, moutabal, tabbouleh and fresh bread.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-top">🍲</div>
+      <div class="dish-info">
+        <small>TUNISIAN</small>
+        <h3>Tunisian Couscous</h3>
+        <p>Traditional couscous with vegetables and spices.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-top">🍳</div>
+      <div class="dish-info">
+        <small>LEBANESE</small>
+        <h3>Lebanese Breakfast</h3>
+        <p>Labneh, eggs, olives, vegetables and fresh bread.</p>
+      </div>
+    </div>
+
+    <div class="dish">
+      <div class="dish-top">🥐</div>
+      <div class="dish-info">
+        <small>FRENCH</small>
+        <h3>French Breakfast</h3>
+        <p>Fresh pastries, butter, preserves and coffee.</p>
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
-<section id="experience">
-  <p class="label">04 — EXPERIENCE</p>
-  <div class="two-col">
-    <div><h2>A decade<br><i>behind the pass.</i></h2><div class="years">10<span>+</span></div><p class="label">YEARS OF EXPERIENCE</p></div>
+
+<section id="experience" class="light">
+
+  <div class="section-label">04 — EXPERIENCE</div>
+
+  <div class="two">
+
+    <div>
+
+      <h2>
+        Years behind<br>
+        <span>the kitchen.</span>
+      </h2>
+
+      <div style="font-size:75px;font-family:Georgia,serif;color:#d4af37;font-weight:bold;">
+        10+
+      </div>
+
+      <p>YEARS OF CULINARY EXPERIENCE</p>
+
+    </div>
+
     <div class="timeline">
-      <div><b>TUNISIA</b><h3>Restaurant Management</h3><p>Managed restaurants and kitchen operations, developing experience across Tunisian and international cuisine.</p></div>
-      <div><b>LEBANON</b><h3>Hotel Culinary Operations</h3><p>Worked in a hotel and took responsibility for the American restaurant and the Italian restaurant.</p></div>
-      <div><b>NOW</b><h3>Professional Chef</h3><p>Available for restaurant opportunities, hotel kitchens and culinary collaborations.</p></div>
+
+      <div class="timeline-item">
+        <small>TUNISIA</small>
+        <h3>Restaurant Experience</h3>
+        <p>
+          Experience in restaurant operations and
+          Tunisian and international cuisine.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <small>LEBANON</small>
+        <h3>Hotel & Restaurant Operations</h3>
+        <p>
+          Experience with American and Italian
+          restaurant operations.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <small>NOW</small>
+        <h3>Professional Chef</h3>
+        <p>
+          Open to restaurant positions, hotel kitchens
+          and professional culinary opportunities.
+        </p>
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<section id="gallery" class="dark">
-  <p class="label">05 — GALLERY</p>
-  <div class="gallery">
-    <img class="big" src="assets/chef-kitchen.jpg" alt="Chef Ali in kitchen">
-    <img src="assets/chef-formal.jpg" alt="Chef Ali at an event">
-    <img src="assets/chef-event.jpg" alt="Chef Ali at a formal event">
-    <img class="wide" src="assets/chef-couple.png" alt="Ali Mansour at an event">
-  </div>
+
+<section class="family">
+
+  <div class="family-icon">👨‍🍳</div>
+
+  <h2>
+    Chef. Husband. <span>Father.</span>
+  </h2>
+
+  <p>
+    Married and proud father of two children.
+  </p>
+
 </section>
 
-<section id="contact" class="contact">
-  <p class="label">06 — CONTACT</p>
-  <div class="two-col">
-    <div><h2>Let's create<br><i>something memorable.</i></h2><p class="copy">For restaurant positions, hotel opportunities, collaborations or professional inquiries.</p></div>
-    <div class="contact-card">
-      <p>ALI MANSOUR MANSOUR</p><a href="tel:+961420788">00961 4 207 88</a>
-      <a class="gold-btn full" href="tel:+961420788">CALL ALI</a>
+
+<section id="contact" class="dark">
+
+  <div class="section-label">05 — CONTACT</div>
+
+  <div class="contact-box">
+
+    <div>
+      <h2>Let's create something memorable.</h2>
+      <p>
+        For restaurant positions, hotel opportunities,
+        collaborations or professional inquiries.
+      </p>
     </div>
+
+    <a class="contact-btn" href="tel:+961420788">
+      CALL ALI
+    </a>
+
   </div>
+
 </section>
 
-<footer><span class="logo">ALI<span>.</span></span><span>© 2026 Ali Mansour Mansour</span><a href="#home">↑ TOP</a></footer>
-<script>
-const nav=document.querySelector('nav');
-window.addEventListener('scroll',()=>document.querySelector('header').classList.toggle('scrolled',scrollY>20));
-</script>
-</body></html>
+
+<footer>
+
+  <div class="logo">ALI<span>.</span></div>
+
+  <div>
+    © 2026 Ali Mansour Mansour
+  </div>
+
+  <a href="#home">↑ TOP</a>
+
+</footer>
+
+</body>
+</html>
